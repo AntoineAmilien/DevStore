@@ -1,0 +1,90 @@
+﻿
+@model DevStore.ViewModels.ArticleViewModel
+@{
+    ViewData["Title"] = "Articles";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DevStore</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="~/css/site.css">
+
+    <!--css-->
+    <link rel="stylesheet" type="text/css" href="~/css/ArticlesView/articlesView.css">
+    <!--x css x-->
+
+</head>
+<body>
+    <header>
+
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">DevStore</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav ml-auto mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">Accueil <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="home" asp-action="ArticlesView">Nos Articles</a>
+                    </li>
+                </ul>
+
+                <a type="button" class="btn btn-outline-primary btn-sm mr-4" asp-controller="Home" asp-action="ConnexionView">Connexion</a>
+
+
+
+            </div>
+        </nav>
+        <!--Navbar-->
+
+    </header>
+
+
+    <div class="text-center">
+        <h1 class="display-4">Nos articles</h1>
+
+        <input type="button" class="btn btn-outline-primary mt-lg-0 mt-md-0 mt-sm-0 mt-3" value="Tous" onclick="tris()" />
+
+        @foreach (CategorieModel categorie in Model.listCategorie)
+        {
+            int indexCategorie = Model.listCategorie.IndexOf(categorie);
+            <input type="button" class="btn btn-outline-primary mt-lg-0 mt-md-0 mt-sm-0 mt-3" value="@Html.DisplayFor(m => m.listCategorie[indexCategorie].Intitule)" onclick="tris(@Html.DisplayFor(m => m.listCategorie[indexCategorie].Id))" />
+        }
+
+    </div>
+
+    <div class="container-fluid mt-5">
+        <div class="row justify-content-around no-gutters" id="containerArticle">
+            @foreach (ArticleModel article in Model.listArticle)
+            {
+
+                int index = Model.listArticle.IndexOf(article);
+                string article_n = "article_" + Model.listArticle[index].Id;
+                <div style="background-image:url('@(Model.listArticle[index].Miniature != null ? "/assets/articles/" + article_n + "/miniature/" + Model.listArticle[index].Miniature : "/assets/miniatureCategorie/" + Model.listArticle[index].Categorie.Image)'); background-size: cover;  background-repeat: no-repeat; background-position: center;" class="col-lg-2 col-md-4 col-sm-4 col-6 mt-2 mt-2 ml-1 mr-1 articleGrand">
+                    <p> @Html.DisplayFor(m => m.listArticle[index].Titre)</p>
+                    <p>@Html.DisplayFor(m => m.listArticle[index].SousTitre)</p>
+                    <input type="button" value="Lire la suite" class="btn btn-primary btn-sm" onclick="location.href='@Url.Action("ViewArticle", "Home")?ArticleId=@Html.DisplayFor(m => m.listArticle[index].Id)'" />
+                </div>
+            }
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!--Js-->
+    <script src="~/js/ArticlesView/articlesView.js" charset="utf-8"></script>
+    <!--x Js x-->
+
+</body>
+</html>

@@ -1,0 +1,459 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+/***** Commun *****/
+* {
+    list-style: none;
+    margin: 0px 0px 0px;
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Button */
+.mybutton {
+    width: 40%;
+    height: 45px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.buttonBackground {
+    background: #186AA5;
+    color: white;
+    border: none;
+}
+
+    .buttonBackground:hover {
+        background: #FFFFFF;
+        color: #186AA5;
+        border: solid 1px #186AA5;
+    }
+
+.buttonOutline {
+    background: #FFFFFF;
+    color: #186AA5;
+    border: solid 1px #186AA5;
+}
+
+    .buttonOutline:hover {
+        background: #186AA5;
+        color: white;
+        border: none;
+    }
+
+/* v Texte v*/
+.titre {
+    font-size: 6.5vw;
+    margin-left: -0.3vw;
+    line-height: 0.4;
+}
+
+.sousTitre {
+    font-size: 3.5vw;
+}
+
+.titreSection {
+    font-size: 3vw;
+    color: #186AA5;
+    text-transform: uppercase;
+}
+
+/* x Texte x */
+/* Accueil -> Section 1*/
+.section1gauche {
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+    padding-bottom: 5%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section1text {
+    width: 80%;
+}
+
+.divButton {
+    padding: 2%;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.section1droite {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+    .section1droite img {
+        width: 140%;
+        height: auto;
+        margin-right: -20%;
+    }
+
+/* Articles Recents -> Section 2*/
+.section2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 4%;
+    width: 100%;
+}
+
+    .section2 .articleContainer {
+        display: flex;
+        flex-direction: row;
+    }
+
+.displayGrand {
+    display: block;
+}
+
+.displayPetit {
+    display: none;
+}
+
+.articleGrand {
+    min-width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.5s;
+}
+
+    .articleGrand p {
+        color: #FFFFFF;
+    }
+
+        .articleGrand p:nth-child(1) {
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+        .articleGrand p:nth-child(2) {
+            line-height: 0.1;
+        }
+
+    .articleGrand button {
+        position: absolute;
+        bottom: 20px;
+    }
+
+    .articleGrand:hover {
+        box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
+        transform: scale(1.02);
+    }
+
+/* Information -> Section 3*/
+.containerInformation {
+    margin-top: 5%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.informationGauche {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.informationCentre {
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+    .informationCentre img {
+        width: 80%;
+    }
+
+.informationDroite {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.informationCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.informationGauche .informationTCardtext {
+    text-align: right;
+    margin-right: 10%;
+    padding-left: 5%;
+}
+
+.informationDroite .informationTCardtext {
+    text-align: left;
+    margin-left: 10%;
+    padding-right: 5%;
+}
+
+.informationTCardtext p:nth-child(1) {
+    color: #186AA5;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.informationCardImage {
+    border-radius: 50%;
+    height: auto;
+    width: 7vw;
+    min-height: 100px;
+    min-width: 100px;
+}
+
+/* Section 4 Equipe*/
+.containerEquipe {
+    width: 100%;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.containerCardPersonne {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1%;
+}
+
+.cardPersonne {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+    box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
+    border: solid 4px #f2f2f2;
+    padding-top: 4%;
+}
+
+.cardPersonneImage {
+    border-radius: 50%;
+    height: 7vw;
+    width: 7vw;
+    min-height: 150px;
+    min-width: 150px;
+}
+
+.cardPersonne p:nth-child(2) {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 6%;
+}
+
+.cardPersonne p:nth-child(3) {
+    font-style: italic;
+    margin-top: -15px;
+}
+
+/* Section 5 Contact */
+.containerContact {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5%;
+}
+
+.formContact {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formHeaderContact {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+    .formHeaderContact input {
+        border: solid 1px #73A1C2;
+        padding-left: 1%;
+        padding: 0.5%;
+    }
+
+        .formHeaderContact input:nth-child(1) {
+            width: 47.5%;
+            max-width: 500px;
+        }
+
+        .formHeaderContact input:nth-child(2) {
+            width: 47.5%;
+            max-width: 500px;
+        }
+
+.formContact textarea {
+    margin-top: 20px;
+    width: 98%;
+    padding-left: 1%;
+    padding: 0.5%;
+    border: solid 1px #73A1C2;
+}
+
+.containerContact button {
+    background: #186AA5;
+    border: none;
+    max-width: 500px;
+}
+
+@media screen and (max-width: 992px) {
+    .section1gauche {
+        padding: 0%;
+        padding-top: 5%;
+    }
+
+    /* v texte v */
+    .titre {
+        font-size: 8vw;
+        margin-left: -0.3vw;
+        line-height: 0.4;
+    }
+
+    .sousTitre {
+        font-size: 6vw;
+    }
+
+    .titreSection {
+        font-size: 4.5vw;
+    }
+
+    /* x texte */
+    .section1droite {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+        .section1droite img {
+            width: 50%;
+            height: auto;
+            margin-right: 0%;
+        }
+
+    /* Information -> Section 3*/
+    .informationCard {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+
+    .informationCardImage {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    /* v Texte v */
+    .titreSection {
+        font-size: 5.5vw;
+    }
+
+    /* x Texte x */
+    .section2 {
+        padding: 5%;
+    }
+
+    .displayGrand {
+        display: none;
+    }
+
+    .displayPetit {
+        display: block;
+    }
+
+    /* Information -> Section 3*/
+    .containerInformation {
+        padding: 0%;
+    }
+
+    .informationCentre {
+        display: none;
+    }
+
+    .informationGauche {
+        width: 100%;
+    }
+
+    .informationDroite {
+        width: 100%;
+    }
+
+    /* Section 4 Equipe*/
+    .containerEquipe {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    #carouselEquipe {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+
+    /* v Texte v */
+    .titre {
+        font-size: 10vw;
+        margin-left: -0.3vw;
+        line-height: 0.4;
+    }
+
+    .sousTitre {
+        font-size: 7vw;
+    }
+
+    .titreSection {
+        font-size: 7vw;
+    }
+    /* x texte x */
+
+    /* v Accueil v */
+    .section1gauche {
+        padding-top: 10%;
+    }
+
+    /* Section 4 Equipe*/
+    .containerEquipe {
+        padding-top: 7%;
+    }
+
+    /* Section 5 Contact*/
+    .formHeaderContact {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+        .formHeaderContact input:nth-child(1) {
+            width: 100%;
+        }
+
+        .formHeaderContact input:nth-child(2) {
+            width: 100%;
+            margin-top: 15px;
+        }
+}

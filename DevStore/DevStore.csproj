@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'DevStore' ">
+    <StartAction>Project</StartAction>
+    <ApplicationURL>http://localhost:5002</ApplicationURL>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="wwwroot\css\index\" />
+    <Folder Include="wwwroot\assets\" />
+    <Folder Include="wwwroot\css\Connexion\" />
+    <Folder Include="wwwroot\assets\miniatureCategorie\" />
+    <Folder Include="wwwroot\css\ArticlesView\" />
+    <Folder Include="wwwroot\js\ArticlesView\" />
+    <Folder Include="Views\Admin\" />
+    <Folder Include="wwwroot\css\DetailsArticle\" />
+    <Folder Include="wwwroot\css\ModifierArticle\" />
+    <Folder Include="wwwroot\css\Admin\" />
+    <Folder Include="wwwroot\assets\articles\" />
+    <Folder Include="ActionFilters\" />
+    <Folder Include="wwwroot\js\Index\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.21" />
+    <PackageReference Include="log4net" Version="2.0.8" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\pdf\NomDuPdfArticle1.pdf" />
+    <Content Remove="Views\Admin\viewAndAdminMembresView.cshtml" />
+    <Content Remove="wwwroot\assets\bitmoji\Antoine.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="Views\Admin\updateArticleView.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Admin\toto.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

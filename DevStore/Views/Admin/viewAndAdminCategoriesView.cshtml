@@ -1,0 +1,67 @@
+﻿@model DevStore.ViewModels.AdminViewModel
+@{
+    ViewData["Title"] = "Categorie";
+}
+
+        <div class="app-main__outer">
+            <div class="app-main__inner">
+                <div class="app-page-title">
+                    <div class="page-title-wrapper">
+                        <div class="page-title-heading">
+                            <div class="page-title-icon">
+                                <i class=" icon-gradient bg-mean-fruit metismenu-icon fas fa-pen"></i>
+                            </div>
+                            <div>
+                                Voir les categories et modifier/Supprimer une categorie
+                                <div class="page-title-subheading">
+                                    Voir les categories et modifier/Supprimer une categorie
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="w-100 d-inline-block">
+                    <!-- V cards catégories V-->
+                    @if (ViewBag.ErrMsg != null)
+                    {
+                        <div class="alert alert-danger fade show" role="alert">
+                            @ViewBag.ErrMsg
+                        </div>
+                    }
+
+                    @if (ViewBag.ValidationMsg != null)
+                    {
+                        <div class="alert alert-success fade show" role="alert">
+                            @ViewBag.ValidationMsg
+                        </div>
+                    }
+                    <div class="row">
+                        @foreach (CategorieModel categorie in Model.listCategorie)
+                        {
+                            int index = Model.listCategorie.IndexOf(categorie);
+                            <div class="col-lg-6 col-xl-4">
+                                <div class="card mb-3 widget-content">
+                                    <div class="widget-content-wrapper">
+                                        <div class="widget-content-left">
+                                            <div class="widget-heading">@Model.listCategorie[index].Intitule</div>
+                                        </div>
+                                        <div class="d-flex justify-content-center widget-content-right">
+                                            <a class="m-1 btn btn-sm btn-primary" asp-controller="Admin" asp-action="updateCategorieView" asp-route-categorieId="@Model.listCategorie[index].Id" role="button">Modifier</a>
+                                            <a class="m-1 btn btn-sm btn-danger" asp-controller="Admin" asp-action="deleteCategorie" asp-route-categorieId="@Model.listCategorie[index].Id" role="button">Supprimer</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+
+                    <!-- X cards catégories X-->
+                </div>
+
+
+            </div>
+        </div>
+

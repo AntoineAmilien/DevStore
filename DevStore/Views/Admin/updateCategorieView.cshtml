@@ -1,0 +1,81 @@
+﻿@model DevStore.ViewModels.AdminViewModel
+@{
+    ViewData["Title"] = "Categorie";
+}
+
+        <div class="app-main__outer">
+            <div class="app-main__inner">
+                <div class="app-page-title">
+                    <div class="page-title-wrapper">
+                        <div class="page-title-heading">
+                            <div class="page-title-icon">
+                                <i class=" icon-gradient bg-mean-fruit fas fa-tachometer-alt"></i>
+                            </div>
+                            <div>
+                                Modifier une categorie
+                                <div class="page-title-subheading">
+                                    Formulaire pour modifier une categorie.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="w-100 d-inline-block">
+
+                    <!-- V Formulaire de modification d'une categorie V-->
+
+                    <div class="main-card mb-3 card">
+                        <div class="card-body">
+                            @if (ViewBag.ErrMsg != null)
+                            {
+                                <div class="alert alert-danger fade show" role="alert">
+                                    @ViewBag.ErrMsg
+                                </div>
+                            }
+
+                            @if (ViewBag.ValidationMsg != null)
+                            {
+                                <div class="alert alert-success fade show" role="alert">
+                                    @ViewBag.ValidationMsg
+                                </div>
+                            }
+                            <h5 class="card-title">Formulaire de modification</h5>
+                            <form method="post" enctype="multipart/form-data" asp-controller="Admin" asp-action="UpdateCategorie" asp-route-Id="@Model.categorie.Id" asp-route-ImageActuelle="@Model.categorie.Image">
+
+                                <div class="position-relative row form-group">
+                                    <label for="Titre" class="col-sm-2 col-form-label">Intitulé</label>
+                                    <div class="col-sm-10"><input name="Intitule" placeholder="Titre de l'article" type="text" class="form-control" value="@Html.DisplayFor(m => m.categorie.Intitule)" required></div>
+                                </div>
+
+
+                                <div class="position-relative row form-group">
+                                    <label for="ImageActuelle" class="col-sm-2 col-form-label">Image categorie actuelle</label>
+                                    <div class="col-sm-10"><input name="ImageActuelle" type="text" class="form-control" value="@Html.DisplayFor(m => m.categorie.Image)" readonly></div>
+                                </div>
+
+                                <div class="position-relative row form-group">
+                                    <label for="image" class="col-sm-2 col-form-label">Miniature</label>
+                                    <div class="col-sm-10">
+                                        <input name="image" type="file" runat="server" class="form-control-file" id="image" placeholder="Image categorie">
+                                        <small class="form-text text-muted">Image de categorie Format : png ou jpeg</small>
+                                    </div>
+                                </div>
+
+
+                                <div class="position-relative row form-check">
+                                    <div class="col-sm-10 offset-sm-2">
+                                        <input type="submit" class="btn btn-primary" value="Modifier cette categorie !">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- X Formulaire de modification d'une categorie X-->
+
+                </div>
+            </div>
+        </div>

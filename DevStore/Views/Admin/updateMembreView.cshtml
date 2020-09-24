@@ -1,0 +1,87 @@
+﻿@model DevStore.ViewModels.AdminViewModel
+@{
+    ViewData["Title"] = "Membre";
+}
+
+        <div class="app-main__outer">
+            <div class="app-main__inner">
+                <div class="app-page-title">
+                    <div class="page-title-wrapper">
+                        <div class="page-title-heading">
+                            <div class="page-title-icon">
+                                <i class=" icon-gradient bg-mean-fruit fas fa-tachometer-alt"></i>
+                            </div>
+                            <div>
+                                Modifier un membre
+                                <div class="page-title-subheading">
+                                    Formulaire pour modifier un membre de l'équipe.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="w-100 d-inline-block">
+
+                    <!-- V Formulaire de modification d'un membre V-->
+
+                    <div class="main-card mb-3 card">
+                        <div class="card-body">
+                            @if (ViewBag.ErrMsg != null)
+                            {
+                                <div class="alert alert-danger fade show" role="alert">
+                                    @ViewBag.ErrMsg
+                                </div>
+                            }
+
+                            @if (ViewBag.ValidationMsg != null)
+                            {
+                                <div class="alert alert-success fade show" role="alert">
+                                    @ViewBag.ValidationMsg
+                                </div>
+                            }
+                            <h5 class="card-title">Formulaire d'ajout</h5>
+                            <form method="post" enctype="multipart/form-data" asp-controller="Admin" asp-action="updateMembre" asp-route-Id="@Model.membre.Id" asp-route-BitmojiActuel="@Model.membre.Image">
+
+                                <div class="position-relative row form-group">
+                                    <label for="Nom" class="col-sm-2 col-form-label">Nom</label>
+                                    <div class="col-sm-10"><input value="@Model.membre.Nom" name="Nom" placeholder="Nom du membre" type="text" class="form-control" required></div>
+                                </div>
+                                <div class="position-relative row form-group">
+                                    <label for="Prenom" class="col-sm-2 col-form-label">Prenom</label>
+                                    <div class="col-sm-10"><input value="@Model.membre.Prenom" name="Prenom" placeholder="Prenom du membre" type="text" class="form-control" required></div>
+                                </div>
+                                <div class="position-relative row form-group">
+                                    <label for="Profession" class="col-sm-2 col-form-label">Profession</label>
+                                    <div class="col-sm-10"><input value="@Model.membre.Profession" name="Profession" placeholder="Profession du membre" type="text" class="form-control" required></div>
+                                </div>
+
+                                <div class="position-relative row form-group">
+                                    <label for="Image" class="col-sm-2 col-form-label">Bitmoji</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" value="@Model.membre.Image" runat="server" class="form-control-file" id="Bitmoji" placeholder="Bitmoji" name="Bitmoji">
+                                        <small class="form-text text-muted">Bitmoji du membre.Format : png ou jpg</small>
+                                    </div>
+                                </div>
+
+                                <div class="position-relative row form-check">
+                                    <div class="col-sm-10 offset-sm-2">
+                                        <input type="submit" class="btn btn-primary" value="Modifier le membre !">
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+
+
+                    <!-- X Formulaire de modification d'un membre X-->
+
+                </div>
+
+            </div>
+        </div>
+

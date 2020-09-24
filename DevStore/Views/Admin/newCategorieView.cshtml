@@ -1,0 +1,77 @@
+﻿@model DevStore.ViewModels.AdminViewModel
+@{
+    ViewData["Title"] = "New Categorie";
+}
+
+
+
+        <div class="app-main__outer">
+            <div class="app-main__inner">
+                <div class="app-page-title">
+                    <div class="page-title-wrapper">
+                        <div class="page-title-heading">
+                            <div class="page-title-icon">
+                                <i class="icon-gradient bg-mean-fruit metismenu-icon fas fa-plus"></i>
+                            </div>
+                            <div>
+                                Ajouter une catégorie
+                                <div class="page-title-subheading">
+                                    Formulaire pour poster une nouvelle catégorie.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="w-100 d-inline-block">
+
+                    <!-- V Formulaire d'ajout d'une catégorie V-->
+
+                    <div class="main-card mb-3 card">
+                        <div class="card-body">
+
+                            @if (ViewBag.ErrMsg != null)
+                            {
+                                <div class="alert alert-danger fade show" role="alert">
+                                    @ViewBag.ErrMsg
+                                </div>
+                            }
+
+                            @if (ViewBag.ValidationMsg != null)
+                            {
+                                <div class="alert alert-success fade show" role="alert">
+                                    @ViewBag.ValidationMsg
+                                </div>
+                            }
+                            <h5 class="card-title">Formulaire d'ajout</h5>
+                            <form method="post" enctype="multipart/form-data" asp-controller="Admin" asp-action="newCategorie">
+
+                                <div class="position-relative row form-group">
+                                    <label for="Intitule" class="col-sm-2 col-form-label">Titre</label>
+                                    <div class="col-sm-10"><input name="Intitule" placeholder="Intitule de la catégorie" type="text" class="form-control" required></div>
+                                </div>
+
+                                <div class="position-relative row form-group">
+                                    <label for="ImageCategorie" class="col-sm-2 col-form-label">Image Categorie</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" runat="server" class="form-control-file" id="ImageCategorie" placeholder="Image catégorie" name="ImageCategorie" required>
+                                        <small class="form-text text-muted">Image de miniature catégorie.Format : jpg, png</small>
+                                    </div>
+                                </div>
+
+                                <div class="position-relative row form-check">
+                                    <div class="col-sm-10 offset-sm-2">
+                                        <input type="submit" class="btn btn-primary" value="Ajouter la categorie !">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- X Formulaire d'ajout d'un article X-->
+
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,102 @@
+﻿@model DevStore.ViewModels.AdminViewModel
+@{
+    ViewData["Title"] = "New Article";
+}
+
+        <div class="app-main__outer">
+            <div class="app-main__inner">
+                <div class="app-page-title">
+                    <div class="page-title-wrapper">
+                        <div class="page-title-heading">
+                            <div class="page-title-icon">
+                                <i class="icon-gradient bg-mean-fruit metismenu-icon fas fa-plus"></i>
+                            </div>
+                            <div>
+                                Ajouter un article
+                                <div class="page-title-subheading">
+                                    Formulaire pour poster un nouvel article.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+         
+
+
+                <div class="w-100 d-inline-block">
+
+                    <!-- V Formulaire d'ajout d'un article V-->
+
+                    <div class="main-card mb-3 card">
+                        <div class="card-body">
+                            @if (ViewBag.ErrMsg != null)
+                            {
+                                <div class="alert alert-danger fade show" role="alert">
+                                    @ViewBag.ErrMsg
+                                </div>
+                            }
+
+                            @if (ViewBag.ValidationMsg != null)
+                            {
+                                <div class="alert alert-success fade show" role="alert">
+                                    @ViewBag.ValidationMsg
+                                </div>
+                            }
+                            <h5 class="card-title">Formulaire d'ajout</h5>
+                            <form method="post" enctype="multipart/form-data" asp-controller="Admin" asp-action="newArticle">
+                                <div class="position-relative row form-group">
+                                    <label for="Titre" class="col-sm-2 col-form-label">Titre</label>
+                                    <div class="col-sm-10"><input name="Titre" placeholder="Titre de l'article" type="text" class="form-control" required></div>
+                                </div>
+                                <div class="position-relative row form-group">
+                                    <label for="SousTitre" class="col-sm-2 col-form-label">Sous Titre</label>
+                                    <div class="col-sm-10"><input name="SousTitre" placeholder="Sous titre de l'article" type="text" class="form-control" required></div>
+                                </div>
+                                <div class="position-relative row form-group">
+                                    <label for="Categorie" class="col-sm-2 col-form-label">Categorie</label>
+                                    <div class="col-sm-10">
+                                        <select name="CategorieId" class="form-control" required>
+                                            @foreach (CategorieModel categorie in Model.listCategorie)
+                                            {
+                                                int index = Model.listCategorie.IndexOf(categorie);
+                                                <option value="@Model.listCategorie[index].Id">@Html.DisplayFor(m => m.listCategorie[index].Intitule)</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="position-relative row form-group">
+                                    <label for="Texte" class="col-sm-2 col-form-label">Texte</label>
+                                    <div class="col-sm-10"><textarea name="Texte" class="form-control" required></textarea></div>
+                                </div>
+                                <div class="position-relative row form-group">
+                                    <label for="exampleFile" class="col-sm-2 col-form-label">Miniature</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" runat="server" class="form-control-file" id="imageMiniature" placeholder="Fichier pdf" name="ImageMiniature">
+                                        <small class="form-text text-muted">Image de miniature. Si aucune image n'est ajoutée une miniature par defaut sera ajoutée. Format : png ou jpeg</small>
+                                    </div>
+                                </div>
+                                <div class="position-relative row form-group">
+                                    <label for="NomPdf" class="col-sm-2 col-form-label">Documentation téléchargeable</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" runat="server" class="form-control-file" id="fichierPdf" placeholder="Fichier pdf" name="NomPdf">
+                                        <small class="form-text text-muted">Document téléchargable apres la consultation d'un article.  Format : pdf</small>
+                                    </div>
+                                </div>
+
+
+                                <div class="position-relative row form-check">
+                                    <div class="col-sm-10 offset-sm-2">
+                                        <input type="submit" class="btn btn-primary" value="Ajouter l'article !">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- X Formulaire d'ajout d'un article X-->
+
+                </div>
+            </div>
+        </div>
+

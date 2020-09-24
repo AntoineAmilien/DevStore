@@ -1,0 +1,159 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+/***** general ****/
+input {
+    background:white;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: #E8EFF7;
+}
+
+a {
+    color: #186AA5;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 3%;
+}
+
+input:focus {
+    outline: solid 2px #186AA5;
+}
+
+button {
+    width: 45%;
+    padding: 3%;
+    border: none;
+    background: #D1E4F3;
+    color: #186AA5;
+}
+
+section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    color: #73A1C2;
+}
+
+/**v** general **v**/
+
+.navbar {
+    padding-top: 30px;
+    padding-left: 30px;
+    height: 30px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5%;
+    height: 95vh;
+}
+
+.litleContainer {
+    width: 30vw;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    color: #186AA5;
+    letter-spacing: 1px;
+    font-size: 150%;
+}
+
+    .logo p span {
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-weight: bold;
+    }
+
+.LoginOrSignUp {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 5%;
+}
+
+.login {
+    color: #186AA5;
+    font-weight: 600;
+    font-size: 120%;
+    cursor: pointer;
+}
+
+.spanLogin {
+    padding-bottom: 2%;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom: solid #186AA5 2px;
+}
+
+.spanInput {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    text-align: center;
+    vertical-align: middle;
+
+}
+
+.input {
+    width: 97%;
+    border: none;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 3%;
+}
+
+.submit {
+    width: 100%;
+    background: #186AA5;
+    color: white
+}
+
+
+@media screen and (max-width: 470px) {
+    .LoginOrSignUp {
+        margin: 5%;
+    }
+
+    .litleContainer {
+        margin-top: 10%;
+        min-width: 90vw;
+    }
+
+    .input {
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+
+    button {
+        width: 100%;
+    }
+}

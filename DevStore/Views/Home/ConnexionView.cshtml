@@ -1,0 +1,46 @@
+﻿@model DevStore.ViewModels.ArticleViewModel
+@{
+    ViewData["Title"] = "Connection";
+    Layout = null;
+}
+
+<!--css-->
+<link rel="stylesheet" type="text/css" href="~/css/connexion/connexion.css">
+<!--x css x-->
+
+
+<div class="navbar">
+    <a asp-controller="Home" asp-action="index" type="text">< Back To Home </a>
+</div>
+<div class="container">
+    <div class="litleContainer">
+        <div class="logo">
+            <p>Nxo <span>Devstore</span></p>
+        </div>
+        <div class="LoginOrSignUp">
+            <span class="spanLogin" id="spanLogin"><p class="login" id="login">login</p></span>
+        </div>
+        <section id="loginSection">
+            <form class="form-login" asp-controller="Home" asp-action="Connexion" method="post">
+                <span class="spanInput">
+                    <input type="text" name="EmailLogin" placeholder="Email" class="input">
+                </span>
+                <span class="spanInput">
+                    <input type="password" name="PasswordLogin" placeholder="Password" class="input">
+                </span>
+                <span class="spanInput">
+                    <input type="submit" name="SubmitLogin" value="LOGIN" class="submit input">
+                </span>
+                @if (ViewBag.ErrMsg != null)
+                {
+                 <h3 style="color:red">@ViewBag.ErrMsg</h3>     
+                }
+
+            </form>
+            <span class="spanInput">
+                <a style="margin-top:1%;">Forgot Password ?</a>
+            </span>
+        </section>
+    </div>
+</div>
+

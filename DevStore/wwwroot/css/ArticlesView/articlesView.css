@@ -1,0 +1,29 @@
+﻿ .articleGrand {
+    min-width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all 0.5s;
+    background: red;
+}
+
+.articleGrand p {
+    color: #FFFFFF;
+}
+
+.articleGrand p:nth-child(1) {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.articleGrand p:nth-child(2) {
+    line-height: 0.1;
+}
+
+.containerNewArticleMembre {
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+} 

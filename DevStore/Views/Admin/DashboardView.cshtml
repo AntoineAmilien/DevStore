@@ -1,0 +1,169 @@
+﻿@model DevStore.ViewModels.AdminViewModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+    
+        <div class="app-main__outer">
+            <div class="app-main__inner">
+                <div class="app-page-title">
+                    <div class="page-title-wrapper">
+                        <div class="page-title-heading">
+                            <div class="page-title-icon">
+                                <i class="icon-gradient bg-mean-fruit fas fa-tachometer-alt"></i>
+                            </div>
+                            <div>
+                                Dashboard
+                                <div class="page-title-subheading">
+                                    Retrouver toutes les statistiques du DevStore.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="w-100 d-inline-block">
+                    <!--Je code ICI !-->
+
+                    <!--Statistique cards-->
+                    <div class="row">
+                        <div class="col-lg-6 col-xl-4">
+                            <div class="card mb-3 widget-content">
+                                <div class="widget-content-wrapper">
+                                    <div class="widget-content-left">
+                                        <div class="widget-heading">Articles</div>
+                                        <div class="widget-subheading">Nombre d'articles en ligne</div>
+                                    </div>
+                                    <div class="widget-content-right">
+                                        <div class="widget-numbers text-success"><span>@Model.nbArticlesGlobal</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xl-4">
+                            <div class="card mb-3 widget-content">
+                                <div class="widget-content-wrapper">
+                                    <div class="widget-content-left">
+                                        <div class="widget-heading">J'aimes</div>
+                                        <div class="widget-subheading">Nombre de j'aimes reçus</div>
+                                    </div>
+                                    <div class="widget-content-right">
+                                        <div class="widget-numbers text-primary"><span>XXX</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xl-4">
+                            <div class="card mb-3 widget-content">
+                                <div class="widget-content-wrapper">
+                                    <div class="widget-content-left">
+                                        <div class="widget-heading">Documents Téléchargés</div>
+                                        <div class="widget-subheading">Telechargements effectués</div>
+                                    </div>
+                                    <div class="widget-content-right">
+                                        <div class="widget-numbers text-danger"><span>XXX</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Statistique cards-->
+
+                    <!--Nombre d'articles postés par utilisateurs ou  par categorie-->
+                    <div class="row justify-content-center">
+                        <!--Nombre d'articles postés par utilisateurs-->
+                        <div class="col-md-6 col-sm-12">
+                            <div class="main-card mb-3 card">
+                                <div class="card-header">
+                                    Nombre d'articles postés par utilisateurs
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">Position</th>
+                                                <th>Utilisateurs</th>
+                                                <th class="text-center">Nombre d'articles</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var obj in Model.listNbArticlesByUtilisateurs)
+                                            {
+                                                int index = Model.listNbArticlesByUtilisateurs.IndexOf(obj);
+                                                int position = index + 1;
+
+                                                <tr>
+                                                    <td class="text-center text-muted">@position</td>
+                                                    <td>
+                                                        <div class="widget-content p-0">
+                                                            <div class="widget-content-wrapper">
+                                                                <div class="widget-content-left flex2">
+                                                                    <div class="widget-heading">@Model.listNbArticlesByUtilisateurs[index].utilisateur.Nom</div>
+                                                                    <div class="widget-subheading opacity-7">@Model.listNbArticlesByUtilisateurs[index].utilisateur.Prenom</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">@Model.listNbArticlesByUtilisateurs[index].nombreArticles</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Nombre d'articles postés par utilisateurs-->
+
+                        <!--Nombre d'articles postés par catégorie-->
+                        <div class="col-md-6 col-sm-12">
+                            <div class="main-card mb-3 card">
+                                <div class="card-header">
+                                    Nombre d'articles postés par categories
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">Position</th>
+                                                <th>Categories</th>
+                                                <th class="text-center">Nombre d'articles</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var obj in Model.listNbArticlesByCategories)
+                                            {
+                                                int index = Model.listNbArticlesByCategories.IndexOf(obj);
+                                                int position = index + 1;
+
+                                                <tr>
+                                                    <td class="text-center text-muted">@position</td>
+                                                    <td>
+                                                        <div class="widget-content p-0">
+                                                            <div class="widget-content-wrapper">
+                                                                <div class="widget-content-left flex2">
+                                                                    <div class="widget-heading">@Model.listNbArticlesByCategories[index].categorie.Intitule</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">@Model.listNbArticlesByCategories[index].nombreArticles</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Nombre d'articles postés par catégorie-->
+
+                    </div>
+                    <!--Nombre d'articles postés par utilisateurs ou par categorie-->
+
+                    <!--Je code pas plus loin !-->
+
+                </div>
+            </div>
+        </div>
+    
